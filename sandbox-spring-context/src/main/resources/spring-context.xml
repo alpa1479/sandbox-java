@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+<bean id="xmlBasedService" name="firstBeanName,secondBeanName"
+          class="edu.sandbox.spring.context.xmlbasedconfig.service.impl.XmlBasedServiceImpl">
+        <!-- field injection is not available in XML configuration -->
+        <!-- for constructor injection -->
+<!--        <constructor-arg name="dependency" ref="dependency"/>-->
+        <!-- for setter injection -->
+        <!-- <property name="dependency" ref="dependency"></property> -->
+        <constructor-arg ref="beansMap"/>
+    </bean>
+
+    <util:map id="beansMap" map-class="java.util.HashMap"
+              key-type="edu.sandbox.spring.context.xmlbasedconfig.service.impl.TestEnum"
+              value-type="edu.sandbox.spring.context.xmlbasedconfig.service.impl.BeanIterface">
+        <entry key="A" value-ref="bean1"/>
+        <entry key="B" value-ref="bean2"/>
+    </util:map>
+
+    <bean id="dependency" class="edu.sandbox.spring.context.xmlbasedconfig.service.impl.DependencyImpl"/>
+    <bean id="bean1" class="edu.sandbox.spring.context.xmlbasedconfig.service.impl.Bean1"/>
+    <bean id="bean2" class="edu.sandbox.spring.context.xmlbasedconfig.service.impl.Bean2"/>
+
+</beans>
