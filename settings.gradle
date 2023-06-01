@@ -1,4 +1,4 @@
 rootProject.name = "sandbox-java"
 
-include "sandbox-spring-context"
-include "sandbox-stream-api"
+include "examples:anonymous-classes-and-lambda-expressions"
+include "examples:usage-of-optional-class"
