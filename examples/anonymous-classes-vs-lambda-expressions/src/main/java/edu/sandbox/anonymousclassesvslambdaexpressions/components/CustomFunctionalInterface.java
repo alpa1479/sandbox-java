@@ -1,4 +1,4 @@
-package edu.sandbox.anonymousclassesandlambdaexpressions.components;
+package edu.sandbox.anonymousclassesvslambdaexpressions.components;
 
 @FunctionalInterface // checks that interface has only 1 non-default method, otherwise - compile error
 public interface CustomFunctionalInterface {

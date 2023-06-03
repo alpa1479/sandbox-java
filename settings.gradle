@@ -1,4 +1,4 @@
 rootProject.name = "sandbox-java"
 
-include "examples:anonymous-classes-and-lambda-expressions"
+include "examples:anonymous-classes-vs-lambda-expressions"
 include "examples:usage-of-optional-class"
