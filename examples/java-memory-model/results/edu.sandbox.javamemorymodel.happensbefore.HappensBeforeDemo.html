@@ -1,0 +1,350 @@
+
+<html>
+<head>
+<title>Java Concurrency Stress test report</title>
+ <style type="text/css">
+   * { font-family: Arial; }
+   table { font-size: 9pt; }
+   a { color: #000000; }
+   .progress { padding: 0px; }
+   .header { text-align: left; }
+   .section1 { font-size: 12pt; background-color: #BDB76B; color: #000000; font-weight: bold;}
+   .section2 { font-size: 12pt; background-color: #F0E68C; color: #000000; font-weight: bold;}
+   .cell1 { background-color: #FAFAD2; }
+   .cell2 { background-color: #EEE8AA; }
+   .passedProgress { background-color: #00AA00; color: #FFFFFF; text-align: center; font-weight: bold; }
+   .failedProgress { background-color: #FF0000; color: #FFFFFF; text-align: center; font-weight: bold; }
+   .passed { color: #00AA00; text-align: center; font-weight: bold; }
+   .failed { color: #FF0000; text-align: center; font-weight: bold; }
+   .interesting { color: #0000FF; text-align: center; font-weight: bold; }
+   .spec { color: #AAAA00; text-align: center; font-weight: bold; }
+   .endResult { font-size: 48pt; text-align: center; font-weight: bold; }
+ </style>
+</head>
+<body>
+<h1>edu.sandbox.javamemorymodel.happensbefore.HappensBeforeDemo</h1>
+<h3>Description and references</h3>
+<p>Classic test that demonstrates memory reordering</p>
+<h3>Environment</h3>
+<table>
+<tr>
+<td nowrap>java.specification.name</td>
+<td nowrap>Java Platform API Specification</td>
+</tr>
+<tr>
+<td nowrap>java.specification.vendor</td>
+<td nowrap>Oracle Corporation</td>
+</tr>
+<tr>
+<td nowrap>java.specification.version</td>
+<td nowrap>17</td>
+</tr>
+<tr>
+<td nowrap>java.vendor</td>
+<td nowrap>BellSoft</td>
+</tr>
+<tr>
+<td nowrap>java.version</td>
+<td nowrap>17.0.1</td>
+</tr>
+<tr>
+<td nowrap>java.vm.name</td>
+<td nowrap>OpenJDK 64-Bit Server VM</td>
+</tr>
+<tr>
+<td nowrap>java.vm.vendor</td>
+<td nowrap>BellSoft</td>
+</tr>
+<tr>
+<td nowrap>java.vm.version</td>
+<td nowrap>17.0.1+12-LTS</td>
+</tr>
+<tr>
+<td nowrap>os.arch</td>
+<td nowrap>amd64</td>
+</tr>
+<tr>
+<td nowrap>os.name</td>
+<td nowrap>Windows 10</td>
+</tr>
+<tr>
+<td nowrap>os.version</td>
+<td nowrap>10.0</td>
+</tr>
+</table>
+<h3>Results</h3>
+<table cellpadding=5 border=1>
+<tr>
+<th>Compilation Mode</th>
+<th>Scheduling Class</th>
+<th>Java Options</th>
+<th>Status</th>
+<th colspan=4>Observed States</th>
+</tr>
+<tr>
+<th colspan=4></th>
+<th nowrap align='center'>0, 0</th>
+<th nowrap align='center'>0, 1</th>
+<th nowrap align='center'>1, 0</th>
+<th nowrap align='center'>1, 1</th>
+</tr>
+<tr>
+<td colspan=4></td>
+<td>Interesting</td>
+<td>Acceptable</td>
+<td>Acceptable</td>
+<td>Acceptable</td>
+</tr>
+<tr>
+<td colspan=4></td>
+<td>Have not seen any write</td>
+<td>Have seen one of the writes</td>
+<td>Have seen one of the writes</td>
+<td>Have seen both writes</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:-TieredCompilation]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>107361855</td>
+<td align='right' width='25.0%' bgColor=#00ff00>62657353</td>
+<td align='right' width='25.0%' bgColor=#00ff00>65139659</td>
+<td align='right' width='25.0%' bgColor=#00ff00>10944</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1682019766]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>114572279</td>
+<td align='right' width='25.0%' bgColor=#00ff00>53393899</td>
+<td align='right' width='25.0%' bgColor=#00ff00>57846138</td>
+<td align='right' width='25.0%' bgColor=#00ff00>8375</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=2117602282]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>113614058</td>
+<td align='right' width='25.0%' bgColor=#00ff00>56142076</td>
+<td align='right' width='25.0%' bgColor=#00ff00>59802106</td>
+<td align='right' width='25.0%' bgColor=#00ff00>10291</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=317884019]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>90260358</td>
+<td align='right' width='25.0%' bgColor=#00ff00>57504711</td>
+<td align='right' width='25.0%' bgColor=#00ff00>55242495</td>
+<td align='right' width='25.0%' bgColor=#00ff00>8647</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=569689850]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>134698508</td>
+<td align='right' width='25.0%' bgColor=#00ff00>64457238</td>
+<td align='right' width='25.0%' bgColor=#00ff00>63806603</td>
+<td align='right' width='25.0%' bgColor=#00ff00>9062</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=591138595]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>102808929</td>
+<td align='right' width='25.0%' bgColor=#00ff00>58478762</td>
+<td align='right' width='25.0%' bgColor=#00ff00>61481866</td>
+<td align='right' width='25.0%' bgColor=#00ff00>9854</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -XX:TieredStopAtLevel=1]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>70128522</td>
+<td align='right' width='25.0%' bgColor=#00ff00>45102972</td>
+<td align='right' width='25.0%' bgColor=#00ff00>50563541</td>
+<td align='right' width='25.0%' bgColor=#00ff00>19256</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:+UseBiasedLocking, -Xint]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>260121</td>
+<td align='right' width='25.0%' bgColor=#00ff00>4198427</td>
+<td align='right' width='25.0%' bgColor=#00ff00>3638586</td>
+<td align='right' width='25.0%' bgColor=#00ff00>677</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:-TieredCompilation]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>99139644</td>
+<td align='right' width='25.0%' bgColor=#00ff00>50226545</td>
+<td align='right' width='25.0%' bgColor=#00ff00>50979753</td>
+<td align='right' width='25.0%' bgColor=#00ff00>7869</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1058294951]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>104822754</td>
+<td align='right' width='25.0%' bgColor=#00ff00>62144200</td>
+<td align='right' width='25.0%' bgColor=#00ff00>61946792</td>
+<td align='right' width='25.0%' bgColor=#00ff00>9665</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1260042322]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>154745679</td>
+<td align='right' width='25.0%' bgColor=#00ff00>67418414</td>
+<td align='right' width='25.0%' bgColor=#00ff00>73105167</td>
+<td align='right' width='25.0%' bgColor=#00ff00>9351</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=2018303233]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>92448446</td>
+<td align='right' width='25.0%' bgColor=#00ff00>59921893</td>
+<td align='right' width='25.0%' bgColor=#00ff00>59298984</td>
+<td align='right' width='25.0%' bgColor=#00ff00>9928</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=316017035]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>104143943</td>
+<td align='right' width='25.0%' bgColor=#00ff00>55874562</td>
+<td align='right' width='25.0%' bgColor=#00ff00>61233097</td>
+<td align='right' width='25.0%' bgColor=#00ff00>12289</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:-TieredCompilation, -XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=615260327]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>129858246</td>
+<td align='right' width='25.0%' bgColor=#00ff00>71344593</td>
+<td align='right' width='25.0%' bgColor=#00ff00>71721821</td>
+<td align='right' width='25.0%' bgColor=#00ff00>10271</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -XX:TieredStopAtLevel=1]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>53256184</td>
+<td align='right' width='25.0%' bgColor=#00ff00>43028228</td>
+<td align='right' width='25.0%' bgColor=#00ff00>42887736</td>
+<td align='right' width='25.0%' bgColor=#00ff00>18143</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>unified across all actors
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group free, core group free
+    actor2: package group free, core group free
+</pre></td>
+<td        valign=top width=10>
+<pre>[-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\lib\idea_rt.jar=55789:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.1\bin, -Dfile.encoding=UTF-8, -XX:-UseBiasedLocking, -Xint]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='25.0%' bgColor=#00ffff>677920</td>
+<td align='right' width='25.0%' bgColor=#00ff00>3985706</td>
+<td align='right' width='25.0%' bgColor=#00ff00>3699356</td>
+<td align='right' width='25.0%' bgColor=#00ff00>1069</td>
+</tr>
+</table>
+<h3>Messages</h3>
+<h3>VM Output Streams</h3>
+<h3>VM Error Streams</h3>
+</body>
+</html>

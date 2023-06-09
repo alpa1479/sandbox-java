@@ -1,0 +1,31 @@
+plugins {
+    id "java"
+}
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+dependencies {
+    implementation "ch.qos.logback:logback-classic"
+
+    implementation 'org.openjdk.jcstress:jcstress-core:0.16'
+    annotationProcessor 'org.openjdk.jcstress:jcstress-core:0.16'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation "org.assertj:assertj-core"
+}
+
+//test {
+//    useJUnitPlatform()
+//    testLogging {
+//        events "passed", "skipped", "failed"
+//    }
+//}
+
+tasks.withType(JavaCompile) {
+    options.with {
+        encoding = "UTF-8"
+    }
+}
