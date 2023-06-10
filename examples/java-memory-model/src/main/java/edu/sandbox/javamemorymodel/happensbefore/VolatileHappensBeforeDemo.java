@@ -5,26 +5,22 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class VolatileHappensBeforeDemo {
 
-    /* When the main thread updates the number and ready variables,
-     * there's no guarantee about what the reader thread may see. In other words, the reader thread may see the updated value right away,
-     * with some delay, or never at all.
-     *
-     * To ensure that updates to variables propagate predictably to other threads, we should apply the 'volatile' modifier
-     */
-    private static volatile int number;
-    private static volatile boolean ready;
+    private volatile int variableToRead = 10;
+    private int nonVolatileVariableToRead = 20;
+
+    private volatile int variableToWrite;
+    private int nonVolatileVariableToWrite;
 
     public static void main(String[] args) {
-        var thread = new Thread(() -> {
-            while (!ready) {
-                Thread.yield();
-            }
-            log.info(">>>> number = {}", number);
-        });
+        var demo = new VolatileHappensBeforeDemo();
 
-        thread.start();
+        // Reordering optimization may break 'volatile' visibility
+        // But 'happens-before' guarantee that read of volatile variable happens before read other variables
+        int value = demo.variableToRead;
+        int otherValue = demo.nonVolatileVariableToRead; // will also be from main memory because it after volatile variable, even if this variable is not volatile
 
-        number = 3;
-        ready = true;
+        // 'happens-before' guarantee that all writes that happens before 'volatile' variable write, will remain before
+        demo.nonVolatileVariableToWrite = 10; // will also be written to main memory because it before volatile variable
+        demo.variableToWrite = 3;
     }
 }
