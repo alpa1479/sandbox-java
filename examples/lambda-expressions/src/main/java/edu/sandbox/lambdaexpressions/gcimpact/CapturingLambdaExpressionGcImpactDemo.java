@@ -18,12 +18,20 @@ public class CapturingLambdaExpressionGcImpactDemo {
 
     private void startExample() {
         // Lambda Expression with link to local variable
-        var factor = 2;
-        IntUnaryOperator multiplier = getIntUnaryOperator(factor); // each time new instance of generated class by LambdaMetafactory will be created
-        multiplier.applyAsInt(5);
+        final var factor = 2; // if this variable is final then multiplier2 will create non-capturing lambda, but multiplier1 still be capturing
+
+        // why multiplier1 still be capturing?
+        // getIntUnaryOperator will initiate generation of capturing lambda class by LambdaMetafactory,
+        // then this method will be inlined, and each time new lambda object will be created, but because of escape analysis these objects won't be created in heap
+
+        IntUnaryOperator multiplier1 = getIntUnaryOperator(factor); // each time new instance of generated class by LambdaMetafactory will be created
+        multiplier1.applyAsInt(5);
+
+        IntUnaryOperator multiplier2 = number -> number * factor; // will inline factor variable and will create non-capturing lambda
+        multiplier2.applyAsInt(5);
     }
 
-    private static IntUnaryOperator getIntUnaryOperator(int factor) {
+    private static IntUnaryOperator getIntUnaryOperator(final int factor) { // even if we declare 'factor' variable as final here, it anyway will create capturing lambda
         Runnable runnable = () -> log.trace("");
         runnable.run();
         runnable.run();
