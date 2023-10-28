@@ -1,6 +1,6 @@
-package edu.sandbox.anonymousclassesvslambdaexpressions;
+package edu.sandbox.java.anonymousclassesvslambdaexpressions;
 
-import edu.sandbox.anonymousclassesvslambdaexpressions.components.CustomFunctionalInterface;
+import edu.sandbox.java.anonymousclassesvslambdaexpressions.components.CustomFunctionalInterface;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

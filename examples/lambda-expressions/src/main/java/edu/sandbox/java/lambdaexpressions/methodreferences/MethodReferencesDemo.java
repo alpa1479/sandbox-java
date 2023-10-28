@@ -1,4 +1,4 @@
-package edu.sandbox.lambdaexpressions.methodreferences;
+package edu.sandbox.java.lambdaexpressions.methodreferences;
 
 import lombok.extern.slf4j.Slf4j;
 

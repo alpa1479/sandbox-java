@@ -1,4 +1,4 @@
-package edu.sandbox.lambdaexpressions.types;
+package edu.sandbox.java.lambdaexpressions.types;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package edu.sandbox.usageofoptionalclass;
+package edu.sandbox.java.usageofoptionalclass;
 
 import java.util.Optional;
 import java.util.Random;

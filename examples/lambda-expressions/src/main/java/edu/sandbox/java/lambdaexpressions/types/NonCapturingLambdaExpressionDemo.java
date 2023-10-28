@@ -1,4 +1,4 @@
-package edu.sandbox.lambdaexpressions.types;
+package edu.sandbox.java.lambdaexpressions.types;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package edu.sandbox.lambdaexpressions.gcimpact;
+package edu.sandbox.java.lambdaexpressions.gcimpact;
 
 import lombok.extern.slf4j.Slf4j;
 

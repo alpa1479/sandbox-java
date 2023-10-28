@@ -1,4 +1,4 @@
-package edu.sandbox.anonymousclassesvslambdaexpressions.components;
+package edu.sandbox.java.anonymousclassesvslambdaexpressions.components;
 
 public interface InterfaceWithMultipleMethods {
 

@@ -1,4 +1,4 @@
-package edu.sandbox.javamemorymodel.happensbefore;
+package edu.sandbox.java.javamemorymodel.happensbefore;
 
 import lombok.extern.slf4j.Slf4j;
 

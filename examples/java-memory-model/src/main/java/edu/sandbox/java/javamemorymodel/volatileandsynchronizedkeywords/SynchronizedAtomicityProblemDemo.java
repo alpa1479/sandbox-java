@@ -1,4 +1,4 @@
-package edu.sandbox.javamemorymodel.volatileandsynchronizedkeywords;
+package edu.sandbox.java.javamemorymodel.volatileandsynchronizedkeywords;
 
 import lombok.extern.slf4j.Slf4j;
 
