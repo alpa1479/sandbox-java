@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SynchronizedAtomicityProblemDemo" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="edu.sandbox.java.javamemorymodel.volatileandsynchronizedkeywords.SynchronizedAtomicityProblemDemo" />
+    <module name="sandbox-java.examples.java-memory-model.main" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="edu.sandbox.java.javamemorymodel.volatileandsynchronizedkeywords.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
